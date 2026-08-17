@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sign in &mdash; Dimensional Layout Generator</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="page page-narrow">
+  <header class="app-header">
+    <h1>Dimensional Layout Generator</h1>
+    <p class="subtext">Enter the team password to continue.</p>
+  </header>
+  <main class="card">
+    <form method="post" action="/login">
+      <!--ERROR-->
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" autofocus required>
+      <button type="submit" class="btn btn-primary" style="margin-top:16px;">Sign in</button>
+    </form>
+  </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dimensional Layout Generator</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="page">
+  <header class="app-header">
+    <h1>Dimensional Layout Generator</h1>
+    <p class="subtext">Upload an engineering drawing and generate a ballooned print and dimensional inspection layout.</p>
+  </header>
+
+  <main class="card">
+    <section id="upload-section">
+      <h2>Drawing PDF</h2>
+      <div id="dropzone" class="dropzone">
+        <p class="dz-primary">Drag &amp; drop a PDF here</p>
+        <p class="dz-secondary">or</p>
+        <button type="button" id="browse-btn" class="btn btn-secondary">Browse Files</button>
+        <input type="file" id="file-input" accept="application/pdf,.pdf" hidden>
+      </div>
+      <p id="file-name" class="file-name" hidden></p>
+    </section>
+
+    <section id="layout-section">
+      <h2>Layout Type</h2>
+      <div class="radio-row">
+        <label class="radio-option">
+          <input type="radio" name="layout_type" value="supplier">
+          <span>Supplier Layout</span>
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="layout_type" value="customer">
+          <span>Customer Layout</span>
+        </label>
+      </div>
+    </section>
+
+    <section id="generate-section">
+      <button type="button" id="generate-btn" class="btn btn-primary" disabled>Generate Layout</button>
+      <p id="form-error" class="error" hidden></p>
+    </section>
+
+    <section id="status-section" class="status-section" hidden>
+      <div class="spinner" id="spinner"></div>
+      <p id="status-text">Uploading drawing...</p>
+    </section>
+
+    <section id="results-section" class="results-section" hidden>
+      <h2 id="results-heading">Layout Complete</h2>
+
+      <div id="review-banner" class="review-banner" hidden>
+        <strong>Review Required</strong>
+        <span id="review-count-text"></span>
+      </div>
+
+      <table class="summary-table" id="summary-table">
+        <tbody></tbody>
+      </table>
+
+      <div id="warnings-block" class="warnings-block" hidden>
+        <h3>Warnings</h3>
+        <ul id="warnings-list"></ul>
+      </div>
+
+      <div class="download-row">
+        <a id="dl-pdf" class="btn btn-secondary" href="#">Download Ballooned PDF</a>
+        <a id="dl-excel" class="btn btn-secondary" href="#">Download Completed Excel</a>
+        <a id="dl-both" class="btn btn-secondary" href="#">Download Both</a>
+        <a id="dl-review" class="btn btn-warning" href="#" hidden>Download Review Log</a>
+      </div>
+
+      <button type="button" id="start-over-btn" class="btn btn-link">Process another drawing</button>
+    </section>
+
+    <section id="failed-section" class="failed-section" hidden>
+      <h2>Processing Failed</h2>
+      <p id="failed-text"></p>
+      <button type="button" id="failed-retry-btn" class="btn btn-link">Try again</button>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>Internal Quality Engineering tool &mdash; drawings and outputs are not shared outside this application.</p>
+  </footer>
+</div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
